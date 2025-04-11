@@ -20,7 +20,10 @@ steps:
       git remote add github https://github.com/mberthillot-ac/test-source-repo.git
       git fetch github
       git checkout -b github-main github/main
-      git push origin github-main
+
+      #git push origin github-main
+      git remote add origin1 https://$(System.AccessToken)@dev.azure.com/AbsysCyborgDevOps/ABSYS_CYBORG.LeStudio.KB/_git/test-source-repo
+      git push origin1 github-main
 
       # write-host ("Cloning...")
       # git clone --mirror https://github.com/mberthillot-ac/test-source-repo.git
