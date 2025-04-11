@@ -1,4 +1,4 @@
-schedules: # https://stackoverflow.com/a/78365628
+schedules: # Sources : https://stackoverflow.com/a/78365628 + Copilot
 - cron: 0 0,6,12,18 * * *
   displayName: Trigger every 6 hours
   branches:
@@ -17,22 +17,14 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      git remote add github https://github.com/mberthillot-ac/test-source-repo.git
+      $githubUrl = https://github.com/mberthillot-ac/test-source-repo.git
+      $devopsUrl = ('https://' + $env:AZURE_DEVOPS_EXT_PAT + '@dev.azure.com/AbsysCyborgDevOps/ABSYS_CYBORG.LeStudio.KB/_git/test-source-repo')
+
+      git remote add github $githubUrl
       git fetch github
       git checkout -b github-main github/main
-
-      #git push origin github-main
-      $localUrl = ('https://' + $env:AZURE_DEVOPS_EXT_PAT + '@dev.azure.com/AbsysCyborgDevOps/ABSYS_CYBORG.LeStudio.KB/_git/test-source-repo')
-      git remote add origin1 $localUrl
+      git remote add origin1 $devopsUrl
       git push origin1 github-main
-
-      # write-host ("Cloning...")
-      # git clone --mirror https://github.com/mberthillot-ac/test-source-repo.git
-      # write-host ("Opening cloned directory...")
-      # cd $(build.sourcesdirectory)/test-source-repo.git
-      # write-host ("Opening cloned directory...")
-      # git remote add origin1 https://$(System.AccessToken)@dev.azure.com/AbsysCyborgDevOps/ABSYS_CYBORG.LeStudio.KB/_git/test-source-repo
-      # git push -u origin1  --all
   env:
     #AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
     AZURE_DEVOPS_EXT_PAT: 'FKKtUxDNwckolcYpCd1B0Sywb1jO3T6G1nlEyCTHj6ryOOKBwaMhJQQJ99BDACAAAAAmRzqtAAASAZDO41iD'
