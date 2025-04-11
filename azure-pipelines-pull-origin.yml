@@ -1,6 +1,6 @@
 schedules: # Sources : https://stackoverflow.com/a/78365628 + Copilot
-- cron: 0 0,6,12,18 * * *
-  displayName: Trigger every 6 hours
+- cron: 0 0 * * *
+  displayName: Tous les jours à minuit
   branches:
     include: 
     - main
