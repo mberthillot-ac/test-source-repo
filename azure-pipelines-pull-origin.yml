@@ -22,7 +22,8 @@ steps:
       git checkout -b github-main github/main
 
       #git push origin github-main
-      git remote add origin1 https://$(AZURE_DEVOPS_EXT_PAT)@dev.azure.com/AbsysCyborgDevOps/ABSYS_CYBORG.LeStudio.KB/_git/test-source-repo
+      $localUrl = ('https://' + $env:AZURE_DEVOPS_EXT_PAT + '@dev.azure.com/AbsysCyborgDevOps/ABSYS_CYBORG.LeStudio.KB/_git/test-source-repo')
+      git remote add origin1 $localUrl
       git push origin1 github-main
 
       # write-host ("Cloning...")
