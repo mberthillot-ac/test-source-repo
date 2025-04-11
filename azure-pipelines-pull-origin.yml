@@ -17,7 +17,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      $githubUrl = https://github.com/mberthillot-ac/test-source-repo.git
+      $githubUrl = 'https://github.com/mberthillot-ac/test-source-repo.git'
       $devopsUrl = ('https://' + $env:AZURE_DEVOPS_EXT_PAT + '@dev.azure.com/AbsysCyborgDevOps/ABSYS_CYBORG.LeStudio.KB/_git/test-source-repo')
 
       git remote add github $githubUrl
