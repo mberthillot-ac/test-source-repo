@@ -23,8 +23,8 @@ steps:
       git remote add github $githubUrl
       git fetch github
       git checkout -b github-main github/main
-      git remote add origin1 $devopsUrl
-      git push origin1 github-main
+      git remote add devops $devopsUrl
+      git push devops github-main
   env:
     #AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
     AZURE_DEVOPS_EXT_PAT: 'FKKtUxDNwckolcYpCd1B0Sywb1jO3T6G1nlEyCTHj6ryOOKBwaMhJQQJ99BDACAAAAAmRzqtAAASAZDO41iD'
